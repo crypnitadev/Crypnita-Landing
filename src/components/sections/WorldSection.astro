@@ -1,0 +1,52 @@
+---
+import type { ACTION_ERROR_CODES } from "astro:actions";
+import PictureWrapper from "../PictureWrapper.astro";
+import Title from "../Title.astro";
+import Card from "../WorldCard.astro";
+
+const sectionCards = [
+  {
+    image: "https://picsum.photos/seed/picsum/600/300",
+    title: "¿Qué es World?",
+    description:
+      "Para construir un sistema de identidad digital y financiero justo, confiable y accesible, conectamos a una red global de personas reales.",
+    position: "right",
+  },
+  {
+    image: "https://picsum.photos/seed/picsum/600/300",
+    title: "¿Qué es World ID?",
+    description:
+      "Para proteger tu privacidad y evitar el spam, esta herramienta te permite demostrar que eres único y real en internet. En el futuro, será clave para los servicios online a medida que avance la inteligencia artificial.",
+    position: "left",
+  },
+  {
+    image: "https://picsum.photos/seed/picsum/600/300",
+    title: "¿Y mis datos?",
+    description:
+      "Para brindarte un pasaporte digital seguro y anónimo, el Orb crea una clave encriptada y tu pasaporte digital seguro y anónimo sin almacenar tu información personal.",
+    position: "right",
+  },
+  {
+    image: "https://picsum.photos/seed/picsum/600/300",
+    title: "¿Cómo funciona?",
+    description:
+      "Para garantizar que cada persona sea real, utilizamos el Orb, un dispositivo que verifica la identidad mediante un escaneo único.",
+    position: "right",
+  },
+];
+---
+
+<section class="text-white py-16">
+  <Title title="World" />
+
+  <div class="container mx-auto flex-cols gap-6 px-6 ">
+    {
+      sectionCards.map((card) => (
+        <div class="flex flex-col justify-center md:grid md:grid-cols-2 items-center gap-2 m-8">
+          <Card {...card} />
+          <PictureWrapper src={card.image} alt={card.title} />
+        </div>
+      ))
+    }
+  </div>
+</section>
