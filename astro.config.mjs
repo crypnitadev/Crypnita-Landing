@@ -7,9 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://crypnitadev.github.io',
+  base: 'Crypnita-Landing',
+
   integrations: [react()],
 
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
 });
