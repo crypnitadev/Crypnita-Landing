@@ -28,19 +28,19 @@ const cards = [
 
 <Section>
   <Title title="Beneficios" />
-  <div class="container mx-auto flex-cols gap-6 px-6">
+  <div class="container flex mx-auto flex-col gap-15 md:gap-6 px-6 justify-center items-center">
     {
       cards.map((card) => (
-        <div class="flex m-8">
+        <div class="flex md:w-150">
           <GradientWrapper>
             <Card {...card} />
           </GradientWrapper>
         </div>
       ))
     }
-    <GradientWrapper class="container mx-auto">
+    <GradientWrapper>
       <GradientWrapper>
-        <div class="flex flex-col items-center">
+        <div class="mx-50 flex flex-col items-center">
           <p class="text-center text-3xl mt-3 md:text-5xl">¡Puedes ganar hasta</p>
           <p class="text-center my-3 text-5xl font-bold md:text-6xl">S/600!</p>
           <p class="text-center my-3">Ya son más de 10 millones de personas verificadas</p>

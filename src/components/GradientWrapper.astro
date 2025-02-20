@@ -2,12 +2,10 @@
 const { src, alt } = Astro.props;
 ---
 
-<div class="">
-  <div
-    class="rounded-md bg-linear-130 from-gray-500 via-black to-gray-500 p-[2px] object-cover"
-  >
-    <div class="rounded-md bg-[#1e1b1f] p-[20px] m-0">
-      <slot />
-    </div>
+<div
+  class="w-fit h-fit rounded-md bg-linear-130 from-gray-500 via-black to-gray-500 p-[2px]"
+>
+  <div class="rounded-md bg-[#1e1b1f] p-[20px] m-0">
+    <slot />
   </div>
 </div>

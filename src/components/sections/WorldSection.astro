@@ -37,17 +37,19 @@ const sectionCards = [
 
 <div class="text-white my-10">
     <Title title="World" />
-    <div class="container mx-auto flex-col gap-6 px-6">
+    <div class="container mx-auto gap-6 px-6">
         {sectionCards.map((card) => {
             let isLeft = card.position === "left";
             let isRight = card.position === "right";
             return (
-                <div class="hidden md:flex md:justify-center md:gap-2 md:m-8 md:grid md:grid-cols-2 md:items-center">
+                <div class="hidden md:flex md:gap-2 md:m-8 md:grid md:grid-cols-2 md:items-center">
                     {isLeft && (
                       <Card {...card} />
-                      <GradientWrapper>
-                        <img class="rounded-lg" src={card.image} alt={card.title} />
-                      </GradientWrapper>
+                      <div class="flex justify-end">
+                        <GradientWrapper>
+                          <img class="rounded-lg" src={card.image} alt={card.title} />
+                        </GradientWrapper>
+                      </div>
                     )}
                     {isRight && (
                       <GradientWrapper>
