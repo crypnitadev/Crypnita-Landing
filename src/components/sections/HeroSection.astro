@@ -4,45 +4,52 @@ import Header from "../Header.astro";
 
 <div class="p-10 min-h-screen flex">
   <div
-    class="flex w-full rounded-lg bg-linear-110 from-[#8e8d8e] via-[#4d3b56] to-[#8e8d8e] p-[3px] object-cover"
+    class="flex w-full rounded-md bg-linear-100 from-gray-300 via-black to-gray-300 p-[3px] object-cover"
   >
-    <div
-      class="w-full rounded-lg bg-gradient-to-r from-[#1f1e21] via-[#855291] to-[#637e9f] text-white p-8"
-    >
-      <Header />
-      <div class="container justify-start text-left md:pl-20">
-        <h1 class="text-4xl font-bold mt-8 mb-4 md:block md:text-8xl md:mb-10">
-          Obtén tu identidad anónima digital con
-        </h1>
-        <p class="text-4xl mb-8">
-          También recibe bonos en tu billetera y obtén tu pasaporte
-        </p>
-        <div
-          class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6"
-        >
-          <button
-            class="group rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] px-8 py-4 font-bold font-poppins
-                hover:scale-110 transform ease-in-out transition-transform
-                md:text-xl"
+    <div class="relative w-full rounded-lg bg-[#201d21] text-white p-8">
+      <div
+        class="absolute w-150 h-150 bg-linear-to-r from-[#23a09a] to-[#762d85] rounded-full blur-[90px] left-1/2 bottom-0 -translate-x-1/2 z-0
+        md:w-200 md:h-200 md:left-auto md:right-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:-translate-x-0 md:blur-[128px]"
+      >
+      </div>
+      <div class="relative z-10">
+        <Header />
+        <div class="container justify-start text-left md:pl-20">
+          <h1
+            class="text-4xl font-bold mt-8 mb-4 md:block md:text-8xl md:mb-10"
           >
-            <span class="relative z-10">Descargar World</span>
-            <span
-              class="opacity-0 absolute inset-0.5 rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] blur-sm
-                    group-hover:opacity-50"
-            ></span>
-          </button>
+            Obtén tu identidad anónima digital con
+          </h1>
+          <p class="text-2xl mb-8 md:text-4xl">
+            También recibe bonos en tu billetera y obtén tu pasaporte
+          </p>
+          <div
+            class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6"
+          >
+            <button
+              class="group rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] px-8 py-4 font-bold font-poppins
+        hover:scale-110 transform ease-in-out transition-transform
+        md:text-xl"
+            >
+              <span class="relative z-10">Descargar World</span>
+              <span
+                class="opacity-0 absolute inset-0.5 rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] blur-sm
+        group-hover:opacity-50"
+              ></span>
+            </button>
 
-          <button
-            class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
-                hover:scale-110 transform ease-in-out transition-transform
-                md:text-xl"
-          >
-            <span class="relative z-10">Descargar World</span>
-            <span
-              class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
-                  group-hover:opacity-50"
-            ></span>
-          </button>
+            <button
+              class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins border-2 border-white
+      hover:scale-110 transform ease-in-out transition-transform
+      md:text-xl"
+            >
+              <span class="relative z-10">Descargar World</span>
+              <span
+                class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+      group-hover:opacity-50"
+              ></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
