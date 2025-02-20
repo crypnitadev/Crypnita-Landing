@@ -3,33 +3,48 @@ import Header from "../Header.astro";
 ---
 
 <div class="p-10 min-h-screen flex">
+  <div
+    class="flex w-full rounded-lg bg-linear-110 from-[#8e8d8e] via-[#4d3b56] to-[#8e8d8e] p-[3px] object-cover"
+  >
     <div
-        class="flex w-full rounded-lg bg-linear-110 from-[#8e8d8e] via-[#4d3b56] to-[#8e8d8e] p-[2px] object-cover"
+      class="w-full rounded-lg bg-gradient-to-r from-[#1f1e21] via-[#855291] to-[#637e9f] text-white p-8"
     >
+      <Header />
+      <div class="container justify-start text-left md:pl-20">
+        <h1 class="text-4xl font-bold mt-8 mb-4 md:block md:text-8xl md:mb-10">
+          Obtén tu identidad anónima digital con
+        </h1>
+        <p class="text-4xl mb-8">
+          También recibe bonos en tu billetera y obtén tu pasaporte
+        </p>
         <div
-            class="w-full rounded-lg bg-gradient-to-r from-[#1f1e21] via-[#855291] to-[#637e9f] text-white p-8"
+          class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6"
         >
-            <Header />
-            <div class="container md:pl-8 justify-start text-left">
-                <h1 class="text-4xl font-bold mt-8 mb-4 md:block md:text-8xl md:mb-10">
-                    Obtén tu identidad anónima digital con
-                </h1>
-                <p class="text-4xl mb-8">
-                    También recibe bonos en tu billetera y obtén tu pasaporte
-                </p>
-                <div
-                    class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4"
-                >
-                    <button
-                        class="rounded-lg bg-gradient-to-r from-teal-600 to-purple-500 px-8 py-4 font-semibold font-poppins hover:scale-110 transform ease-in-out transition-transform"
-                        >Descargar World</button
-                    >
-                    <button
-                        class="rounded-lg bg-gradient-to-r from-teal-600 to-purple-500 px-8 py-4 font-semibold font-poppins hover:scale-110 transform ease-in-out transition-transform"
-                        >Más información</button
-                    >
-                </div>
-            </div>
+          <button
+            class="group rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] px-8 py-4 font-bold font-poppins
+                hover:scale-110 transform ease-in-out transition-transform
+                md:text-xl"
+          >
+            <span class="relative z-10">Descargar World</span>
+            <span
+              class="opacity-0 absolute inset-0.5 rounded-lg bg-linear-to-r from-[#23a09a] to-[#762d85] blur-sm
+                    group-hover:opacity-50"
+            ></span>
+          </button>
+
+          <button
+            class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
+                hover:scale-110 transform ease-in-out transition-transform
+                md:text-xl"
+          >
+            <span class="relative z-10">Descargar World</span>
+            <span
+              class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+                  group-hover:opacity-50"
+            ></span>
+          </button>
         </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,0 +1,186 @@
+---
+import Title from "../Title.astro";
+import Section from "./Section.astro";
+
+interface Location {
+  title: string;
+  address: string[];
+  mapImage: string;
+  locationImage: string;
+}
+
+const locations: Location[] = [
+  {
+    title: "Nuevo Chimbote",
+    address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
+    mapImage: "/map.png",
+    locationImage: "/location.png",
+  },
+
+  {
+    title: "Piura",
+    address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
+    mapImage: "/map2.png",
+    locationImage: "/location2.png",
+  },
+];
+---
+
+<Section>
+  <Title title="Puntos" />
+  <div class="relative">
+    <div class="overflow-hidden">
+      <div
+        id="locationSlider"
+        class="flex transition-transform duration-500 ease-in-out"
+      >
+        {
+          locations.map((location, index) => (
+            <div class="w-full flex-shrink-0">
+              <h2 class="text-3xl font-semibold mb-2 text-center">
+                {location.title}
+              </h2>
+              <div class="text-gray-300 mb-4 text-center">
+                {location.address.map((line) => (
+                  <p class="text-lg">{line}</p>
+                ))}
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="relative aspect-video rounded-xl overflow-hidden">
+                  <iframe
+                    src={location.mapImage}
+                    class="w-full h-full"
+                    style="border:0;"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  />
+                  <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                    Ubicación
+                  </button>
+                </div>
+                <div class="relative aspect-video rounded-xl overflow-hidden">
+                  <iframe
+                    src={location.locationImage || "/placeholder.svg"}
+                    class="w-full h-full object-cover"
+                  />
+                  <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                    Ver video
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button
+      id="prevBtn"
+      class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
+      aria-label="Previous location"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button
+      id="nextBtn"
+      class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
+      aria-label="Next location"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="flex justify-center gap-2 mt-4">
+    {
+      locations.map((_, index) => (
+        <button
+          class={`w-2 h-2 rounded-full transition-colors duration-300 ${index === 0 ? "bg-white/50" : "bg-white/30"} dot`}
+          data-index={index}
+        />
+      ))
+    }
+  </div>
+</Section>
+
+<script>
+  const locations = [
+    {
+      title: "Nuevo Chimbote",
+      address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
+      mapUrl: "/placeholder.svg?height=400&width=600",
+      locationImage: "/location.png",
+    },
+
+    {
+      title: "Nuevo ",
+      address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
+      mapUrl: "/placeholder.svg?height=400&width=600",
+      locationImage: "/location.png",
+    },
+  ];
+  const slider = document.getElementById("locationSlider") as HTMLElement;
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dots = document.querySelectorAll(".dot");
+  const totalSlides = locations.length;
+  let currentSlide = 0;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.add("bg-white/50");
+        dot.classList.remove("bg-white/30");
+      } else {
+        dot.classList.add("bg-white/30");
+        dot.classList.remove("bg-white/50");
+      }
+    });
+  }
+
+  prevBtn?.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  });
+
+  // Add dot navigation
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      currentSlide = Number((dot as HTMLElement).dataset.index);
+      updateSlider();
+    });
+  });
+</script>

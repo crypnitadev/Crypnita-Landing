@@ -2,18 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import WorldSection from "@/components/sections/WorldSection.astro";
 import BenefitsSection from "@/components/sections/BenefitsSection.astro";
-import PointsSection from "@/components/sections/PointsSection.astro";
-import HomePage from "@/components/Home/HomePage";
 import HeroSection from "@/components/sections/HeroSection.astro";
 import ContactSection from "@/components/sections/ContactSection.astro";
+import LocationsSection from "@/components/sections/LocationsSection.astro";
+import RegisterSection from "@/components/sections/RegisterSection.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
 <Layout title="CRYPNITA - Identidad anónima digital">
-	<div class=>
+	<div class="overflow-hidden">
 		<HeroSection />
 		<WorldSection />
 		<BenefitsSection />
-		<PointsSection />
+		<LocationsSection />
+		<RegisterSection />
 		<ContactSection />
+		<Footer />
 	</div>
 </Layout>

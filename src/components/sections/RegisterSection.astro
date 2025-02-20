@@ -1,0 +1,47 @@
+---
+import GradientWrapper from "../GradientWrapper.astro";
+import Title from "../Title.astro";
+import Section from "./Section.astro";
+---
+
+<Section>
+  <div class="container mx-auto px-4 py-8 max-w-6xl text-white">
+    <GradientWrapper>
+      <div class="flex flex-col items-center justify-center text-center min-h-full p-4">
+        <Title title="Cómo registrarme?" class="block" />
+        <ol class="flex flex-col list-decimal list-inside text-left">
+          <li>
+            Descarga el aplicativo World App desde Play Store o App Store.
+          </li>
+          <li>Genera una cita de verificación.</li>
+          <li>Dirígete al punto de registro más cercano de tu localidad.</li>
+          <p>¡Y listo!</p>
+        </ol>
+        <div class="flex space-x-4 justify-center mt-8">
+          <button
+            class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
+          hover:scale-110 transform ease-in-out transition-transform
+          md:text-xl"
+          >
+            <span class="relative z-10">Puntos de registro</span>
+            <span
+              class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+        group-hover:opacity-50"
+            ></span>
+          </button>
+          <button
+            class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
+      hover:scale-110 transform ease-in-out transition-transform
+      md:text-xl"
+          >
+            <span class="relative z-10">Descargar App</span>
+            <span
+              class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+      group-hover:opacity-50"
+            ></span>
+          </button>
+        </div>
+      </div>
+    </GradientWrapper>
+  </div>
+</Section>

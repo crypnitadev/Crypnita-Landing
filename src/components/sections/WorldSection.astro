@@ -1,6 +1,5 @@
 ---
-import type { ACTION_ERROR_CODES } from "astro:actions";
-import PictureWrapper from "../PictureWrapper.astro";
+import GradientWrapper from "../GradientWrapper.astro";
 import Title from "../Title.astro";
 import Card from "../WorldCard.astro";
 
@@ -10,21 +9,21 @@ const sectionCards = [
     title: "¿Qué es World?",
     description:
       "Para construir un sistema de identidad digital y financiero justo, confiable y accesible, conectamos a una red global de personas reales.",
-    position: "right",
+    position: "left",
   },
   {
     image: "https://picsum.photos/seed/picsum/600/300",
     title: "¿Qué es World ID?",
     description:
       "Para proteger tu privacidad y evitar el spam, esta herramienta te permite demostrar que eres único y real en internet. En el futuro, será clave para los servicios online a medida que avance la inteligencia artificial.",
-    position: "left",
+    position: "right",
   },
   {
     image: "https://picsum.photos/seed/picsum/600/300",
     title: "¿Y mis datos?",
     description:
       "Para brindarte un pasaporte digital seguro y anónimo, el Orb crea una clave encriptada y tu pasaporte digital seguro y anónimo sin almacenar tu información personal.",
-    position: "right",
+    position: "left",
   },
   {
     image: "https://picsum.photos/seed/picsum/600/300",
@@ -36,17 +35,35 @@ const sectionCards = [
 ];
 ---
 
-<section class="text-white py-16">
-  <Title title="World" />
+<div class="text-white my-10">
+    <Title title="World" />
+    <div class="container mx-auto flex-col gap-6 px-6">
+        {sectionCards.map((card) => {
+            let isLeft = card.position === "left";
+            let isRight = card.position === "right";
+            return (
+                <div class="hidden md:flex md:justify-center md:gap-2 md:m-8 md:grid md:grid-cols-2 md:items-center">
+                    {isLeft && (
+                      <Card {...card} />
+                      <GradientWrapper>
+                        <img class="rounded-lg" src={card.image} alt={card.title} />
+                      </GradientWrapper>
+                    )}
+                    {isRight && (
+                      <GradientWrapper>
+                        <img class="rounded-lg" src={card.image} alt={card.title} />
+                      </GradientWrapper>
+                      <Card {...card} />
+                    )}
+                </div>
 
-  <div class="container mx-auto flex-cols gap-6 px-6 ">
-    {
-      sectionCards.map((card) => (
-        <div class="flex flex-col justify-center md:grid md:grid-cols-2 items-center gap-2 m-8">
-          <Card {...card} />
-          <PictureWrapper src={card.image} alt={card.title} />
-        </div>
-      ))
-    }
-  </div>
-</section>
+                <div class="sm:hidden gap-2 flex flex-col justify-center m-8">
+                    <Card {...card} />
+                    <GradientWrapper>
+                        <img class="rounded-lg" src={card.image} alt={card.title} />
+                      </GradientWrapper>
+                </div>
+            );
+        })}
+    </div>
+</div>

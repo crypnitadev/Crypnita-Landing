@@ -1,5 +1,172 @@
 ---
+import GradientWrapper from "../GradientWrapper.astro";
 import Title from "../Title.astro";
+import Section from "./Section.astro";
 
+interface OrbPoint {
+  id: number;
+  name: string;
+}
+
+const orbPoints: OrbPoint[] = [
+  { id: 1, name: "Nuevo Chimbote" },
+  { id: 2, name: "Lima" },
+];
 ---
-<Title title="Contacto" />
+
+<Section>
+  <Title title="Contacto" />
+  <div class="container mx-auto px-4 md:py-8 max-w-6xl text-white">
+    <GradientWrapper>
+      <div class="backdrop-blur-sm rounded-2xl p-8">
+        <p class="text-gray-300 text-center mb-8 text-lg">
+          Si tienes alguna consulta o duda, por favor, completa el siguiente formulario y nos
+          pondremos en contacto contigo lo antes posible.
+        </p>
+
+        <form class="space-y-6" action="#" method="POST">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Nombre(s) -->
+            <div>
+              <label
+                for="nombres"
+                class="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Nombre(s)
+              </label>
+              <input
+                type="text"
+                name="nombres"
+                id="nombres"
+                required
+                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                placeholder="Texto"
+              />
+            </div>
+
+            <!-- Apellidos -->
+            <div>
+              <label
+                for="apellidos"
+                class="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Apellidos
+              </label>
+              <input
+                type="text"
+                name="apellidos"
+                id="apellidos"
+                required
+                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                placeholder="Texto"
+              />
+            </div>
+
+            <!-- Correo electrónico -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                placeholder="Texto"
+              />
+            </div>
+
+            <!-- Número telefónico -->
+            <div>
+              <label
+                for="telefono"
+                class="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Número telefónico
+              </label>
+              <input
+                type="tel"
+                name="telefono"
+                id="telefono"
+                required
+                pattern="[0-9]{3}-[0-9]{3}"
+                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+                placeholder="000-000"
+              />
+            </div>
+          </div>
+
+          <!-- Orb point -->
+          <div>
+            <label
+              for="orbPoint"
+              class="block text-sm font-medium text-gray-300 mb-2"
+            >
+              Orb point
+            </label>
+            <div class="relative">
+              <select
+                id="orbPoint"
+                name="orbPoint"
+                required
+                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white appearance-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+              >
+                <option value="" disabled selected>Selecciona una opción</option
+                >
+                {
+                  orbPoints.map((point) => (
+                    <option value={point.id}>{point.name}</option>
+                  ))
+                }
+              </select>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4"
+              >
+                <svg
+                  class="h-4 w-4 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex justify-center mt-8">
+            <button
+              type="submit"
+              class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
+              hover:scale-110 transform ease-in-out transition-transform
+              md:text-xl"
+            >
+              <span class="relative z-10">Enviar</span>
+              <span
+                class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+                group-hover:opacity-50"
+              ></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </GradientWrapper>
+  </div>
+</Section>
+
+<style>
+  /* Custom styles for select dropdown */
+  select option {
+    background-color: #1f2937; /* bg-gray-800 */
+    color: white;
+  }
+</style>
