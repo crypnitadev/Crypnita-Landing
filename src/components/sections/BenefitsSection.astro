@@ -4,6 +4,14 @@ import Title from "../Title.astro";
 import Card from "../WorldCard.astro";
 import Section from "./Section.astro";
 
+import fondo from "src/assets/img/bg/Rectangle 41.png";
+
+interface Props {
+  title: string;
+  description: string;
+  position: string;
+}
+
 const cards = [
   {
     title: "Bono de bienvenida",
@@ -24,7 +32,8 @@ const cards = [
     position: "center",
   },
 ];
-import fondo from "src/assets/img/Rectangle 41.png";
+
+const { title, description, position } = Astro.props;
 ---
 <Section 
   style={`background-image: url(${fondo.src})`}

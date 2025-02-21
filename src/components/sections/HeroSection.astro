@@ -1,11 +1,19 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from 'astro';
+
 import Header from "../Header.astro";
-import wordl from "src/assets/img/logo_world bco 1.png";
-import frame from "src/assets/img/Frame 53.png";
-import fondo from "src/assets/img/home.png";
+import fondo from "src/assets/img/bg/home.png";
+
+const frame = "/src/assets/img/hero/frame.png";
+const logo = "/src/assets/img/hero/logo_hero.png";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/hero/*.{jpeg,jpg,png,gif}')
+if (!images[frame]) throw new Error(`"${frame}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[logo]) throw new Error(`"${logo}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<div class="p-10 min-h-screen flex" style={`background-image: url(${fondo.src})`}>
+<div class="p-10 min-h-screen flex">
   <div class="flex w-full rounded-md bg-linear-100 from-gray-300 via-black to-gray-300 p-[3px] object-cover">
     <div class="relative w-full rounded-md bg-[#201d21] text-white p-8">
       <div
@@ -18,11 +26,11 @@ import fondo from "src/assets/img/home.png";
         <div class="container md:pl-20 flex flex-col md:flex-row items-center ">
           <!-- Contenedor del texto y botones -->
           <div class="flex flex-col text-left md:w-1/2">
-            <h1 class="text-3xl font-bold mt-8 mb-4 md:block md:text-7xl md:mb-10">
+            <h1 class="text-3xl font-bold mt-8 mb-4 md:block md:text-8xl md:mb-10">
               Obtén tu identidad anónima digital con
             </h1>
-            <img src={wordl.src} alt="logo world" class="w-[283px] h-[81px] md:w-[513px] md:h-[146px]" />
-            <p class="text-2xl mb-8 md:text-4xl">
+            <Image src={images[logo]()} alt="logo world" class="w-[283px] h-[81px] md:w-[513px] md:h-[146px]" />
+            <p class="text-2xl mb-8 md:text-[36px]">
               También recibe bonos en tu billetera y obtén tu pasaporte
             </p>
             <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6">
@@ -41,7 +49,7 @@ import fondo from "src/assets/img/home.png";
                 hover:scale-110 transform ease-in-out transition-transform
                 md:text-xl"
               >
-                <span class="relative z-10">Descargar World</span>
+                <span class="relative z-10">Más información</span>
                 <span class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
                 group-hover:opacity-50"></span>
               </button>
@@ -50,7 +58,7 @@ import fondo from "src/assets/img/home.png";
 
           <!-- Contenedor de la imagen -->
           <div class="flex justify-center md:w-1/2">
-            <img src={frame.src} alt="frame" class="w-full max-w-[500px]" />
+            <Image src={images[frame]()} alt="frame" class="w-full max-w-[1500px]" />
           </div>
         </div>
       </div>

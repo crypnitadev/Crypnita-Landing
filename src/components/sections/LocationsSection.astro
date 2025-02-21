@@ -1,6 +1,10 @@
 ---
+import GradientWrapper from "../GradientWrapper.astro";
+import ImageComp from "../ImageComp.astro";
 import Title from "../Title.astro";
 import Section from "./Section.astro";
+
+import fondo from "src/assets/img/bg/orb points.png";
 
 interface Location {
   title: string;
@@ -13,110 +17,110 @@ const locations: Location[] = [
   {
     title: "Nuevo Chimbote",
     address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
-    mapImage: "/map.png",
-    locationImage: "/location.png",
-  },
-
-  {
-    title: "Piura",
-    address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
-    mapImage: "/map2.png",
-    locationImage: "/location2.png",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
   },
 ];
-import fondo from "src/assets/img/orb points.png";
 ---
 
 <Section>
   <Title title="Orb points" />
   <div class="relative">
-    <div class="overflow-hidden" >
-      <div
-        id="locationSlider"
-        class="flex transition-transform duration-500 ease-in-out"
-        style={`background-image: url(${fondo.src})`}
-      >
-        {
-          locations.map((location) => (
-            <div class="w-full flex-shrink-0">
-              <h2 class="text-3xl font-semibold mb-2 text-center">
-                {location.title}
-              </h2>
-              <div class="text-gray-300 mb-4 text-center">
-                <ul class="list-disc list-inside">
+    <div class="flex overflow-hidden items-center justify-center">
+      <div class="flex" style={`background-image: url(${fondo.src})`}>
+        <!-- Navigation Buttons -->
+        <button
+          id="prevBtn"
+          class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
+          aria-label="Previous location"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <div
+          id="locationSlider"
+          class="transition-transform duration-500 ease-in-out"
+        >
+          {
+            locations.map((location) => (
+              <div class="w-full flex-shrink-0">
+                <h2 class="text-3xl font-bold mb-2 text-center md:text-[40px]">
+                  {location.title}
+                </h2>
+                <ul class="list-disc list-inside mb-4 text-center text-normal md:text-[28px]">
                   {location.address.map((line) => (
-                    <li class="text-lg">{line}</li>
+                    <li>{line}</li>
                   ))}
                 </ul>
-              </div>
-              <div class="grid md:grid-cols-2 gap-4">
-                <div class="relative aspect-video rounded-xl overflow-hidden">
-                  <iframe
-                    src={location.mapImage}
-                    class="w-full h-full"
-                    style="border:0;"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  />
-                  <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
-                    Ubicación
-                  </button>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="relative aspect-video rounded-xl overflow-hidden">
+                    <div class="w-full h-full">
+                      <GradientWrapper>
+                        <ImageComp
+                          imagePath={location.mapImage}
+                          altText="Mapa"
+                          width={600}
+                          height={300}
+                        />
+                      </GradientWrapper>
+                    </div>
+                    <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                      Ubicación
+                    </button>
+                  </div>
+                  <div class="relative aspect-video rounded-xl overflow-hidden">
+                    <div class="w-full h-full object-cover">
+                      <GradientWrapper>
+                        <ImageComp
+                          imagePath={location.locationImage}
+                          altText="Ubicación"
+                          width={600}
+                          height={300}
+                        />
+                      </GradientWrapper>
+                    </div>
+                    <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                      Ver video
+                    </button>
+                  </div>
                 </div>
-                <div class="relative aspect-video rounded-xl overflow-hidden">
-                  <iframe
-                    src={location.locationImage || "/placeholder.svg"}
-                    class="w-full h-full object-cover"
-                  />
-                  <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
-                    Ver video
-                  </button>
-                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
+
+        <button
+          id="nextBtn"
+          class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
+          aria-label="Next location"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </div>
-
-    <!-- Navigation Buttons -->
-    <button
-      id="prevBtn"
-      class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
-      aria-label="Previous location"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M15 19l-7-7 7-7"></path>
-      </svg>
-    </button>
-    <button
-      id="nextBtn"
-      class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
-      aria-label="Next location"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M9 5l7 7-7 7"></path>
-      </svg>
-    </button>
   </div>
 
   <!-- Navigation Dots -->
@@ -156,7 +160,7 @@ import fondo from "src/assets/img/orb points.png";
   let currentSlide = 0;
 
   function updateSlider() {
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    slider.style.transform = `translateX(-${currentSlide * 150}%)`;
 
     // Update dots
     dots.forEach((dot, index) => {

@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css'; // Asegúrate de que esta ruta sea correcta
+import fondo from "src/assets/img/home.png";
 
 interface Props {
 	title: string;
@@ -19,7 +20,7 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	</head>
 	<body>
-		<main class="bg-[#131214]" >
+		<main>
 			<slot />
 		</main>
 	</body>

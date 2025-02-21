@@ -7,13 +7,14 @@ import ContactSection from "@/components/sections/ContactSection.astro";
 import LocationsSection from "@/components/sections/LocationsSection.astro";
 import RegisterSection from "@/components/sections/RegisterSection.astro";
 import Footer from "@/components/Footer.astro";
+
+import fondo from "src/assets/img/bg/bg.jpg";
 ---
 
 <Layout title="CRYPNITA - Identidad anónima digital">
-	<div class="overflow-hidden">
+	<div class="overflow-hidden" style={`background-image: url(${fondo.src})`}>
 		<HeroSection />
 		<WorldSection />
-		<BenefitsSection />
 		<LocationsSection />
 		<RegisterSection />
 		<ContactSection />
