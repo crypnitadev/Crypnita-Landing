@@ -7,10 +7,17 @@ const headerItems = [
   { name: "App", href: "#app" },
   { name: "Solicita información", href: "#contact" },
 ];
+import logo from "src/assets/img/logo white 1.png";
 ---
 
 <nav class="flex justify-between items-center mb-5 md:mb-10">
-  <h1 class="text-5xl font-bold md:pl-4">CRYPNITA</h1>
+  <div>
+    <img 
+      src={logo.src} 
+      alt="Logo white"
+      class="w-[267px] h-[47px] md:w-[290px] md:h-[51px]"
+    />
+  </div>
   <!-- menú desktop -->
   <div class="hidden md:flex flex-row gap-4 pr-6">
     {

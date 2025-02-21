@@ -5,37 +5,38 @@ import Card from "../WorldCard.astro";
 
 const sectionCards = [
   {
-    image: "https://picsum.photos/seed/picsum/600/300",
+    image: "src/assets/img/IMG_0732.JPG",
     title: "¿Qué es World?",
     description:
       "Para construir un sistema de identidad digital y financiero justo, confiable y accesible, conectamos a una red global de personas reales.",
     position: "left",
   },
   {
-    image: "https://picsum.photos/seed/picsum/600/300",
+    image: "src/assets/img/world4.png",
     title: "¿Qué es World ID?",
     description:
       "Para proteger tu privacidad y evitar el spam, esta herramienta te permite demostrar que eres único y real en internet. En el futuro, será clave para los servicios online a medida que avance la inteligencia artificial.",
     position: "right",
   },
   {
-    image: "https://picsum.photos/seed/picsum/600/300",
+    image: "src/assets/img/Rectangle 21.png",
     title: "¿Y mis datos?",
     description:
       "Para brindarte un pasaporte digital seguro y anónimo, el Orb crea una clave encriptada y tu pasaporte digital seguro y anónimo sin almacenar tu información personal.",
     position: "left",
   },
   {
-    image: "https://picsum.photos/seed/picsum/600/300",
+    image: "src/assets/img/IMG_0676.JPG",
     title: "¿Cómo funciona?",
     description:
       "Para garantizar que cada persona sea real, utilizamos el Orb, un dispositivo que verifica la identidad mediante un escaneo único.",
     position: "right",
   },
 ];
+import fondo from "src/assets/img/world.png";
 ---
 
-<div class="text-white my-10">
+<div class="text-white my-10" style={`background-image: url(${fondo.src})`}>
     <Title title="World" />
     <div class="container mx-auto gap-6 px-6">
         {sectionCards.map((card) => {

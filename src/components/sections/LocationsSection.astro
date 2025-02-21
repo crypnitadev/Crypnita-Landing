@@ -24,15 +24,17 @@ const locations: Location[] = [
     locationImage: "/location2.png",
   },
 ];
+import fondo from "src/assets/img/orb points.png";
 ---
 
 <Section>
   <Title title="Orb points" />
   <div class="relative">
-    <div class="overflow-hidden">
+    <div class="overflow-hidden" >
       <div
         id="locationSlider"
         class="flex transition-transform duration-500 ease-in-out"
+        style={`background-image: url(${fondo.src})`}
       >
         {
           locations.map((location) => (

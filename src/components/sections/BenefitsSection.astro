@@ -24,9 +24,12 @@ const cards = [
     position: "center",
   },
 ];
+import fondo from "src/assets/img/Rectangle 41.png";
 ---
-
-<Section>
+<Section 
+  style={`background-image: url(${fondo.src})`}
+  class="bg-cover bg-center min-h-screen"
+>
   <Title title="Beneficios" />
   <div class="container flex mx-auto flex-col gap-15 md:gap-6 px-6 justify-center items-center">
     {
