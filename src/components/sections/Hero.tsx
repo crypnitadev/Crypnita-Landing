@@ -14,16 +14,13 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white tracking-wider">
-                  Obtén tu Identidad
-                  anónima digital
-                  con
+                  Obtén tu Identidad anónima digital con
                 </h1>
                 <img
                   src={logo.src}
                   alt="World Device"
                   className="object-contain"
                 />
-                
               </div>
 
               <p className="text-xl md:text-2xl text-white/80">
@@ -31,14 +28,20 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-[#377B74] to-[#572D5B] text-white px-8 py-3 rounded-full font-medium text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                <a
+                  href="#"
+                  className="bg-gradient-to-r from-[#377B74] to-[#572D5B] text-white px-8 py-3 rounded-full font-medium text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                >
                   <Download className="w-5 h-5" />
                   Descargar World
-                </button>
-                <button className="bg-white/10 backdrop-blur-sm text-black px-8 py-3 rounded-full font-medium text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                </a>
+                <a
+                  href="/Crypnita-Landing/#world"
+                  className="bg-white/10 backdrop-blur-sm text-black px-8 py-3 rounded-full font-medium text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+                >
                   <Info className="w-5 h-5" />
                   Quiero más info
-                </button>
+                </a>
               </div>
             </div>
 
