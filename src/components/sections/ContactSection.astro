@@ -1,6 +1,7 @@
 ---
-import Button from "../Button.astro";
+import Button from "../LinkButton.astro";
 import Section from "../Section.astro";
+import Title from "../Title.astro";
 
 interface OrbPoint {
   id: number;
@@ -8,21 +9,31 @@ interface OrbPoint {
 }
 
 const orbPoints: OrbPoint[] = [
-  { id: 1, name: "Nuevo Chimbote" },
-  { id: 2, name: "Lima" },
+  { id: 1, name: "Chao - La Libertad" },
+  { id: 2, name: "Chimbote - La Libertad" },
+  { id: 3, name: "Chimbote - La Libertad" },
+  { id: 4, name: "Huaraz - Ánchash" },
+  { id: 5, name: "Virú - La Libertad" },
+  { id: 6, name: "Chiclayo" },
+  { id: 7, name: "Ferreñafe" },
+  { id: 8, name: "Piura" },
+  { id: 9, name: "Catacaos" },
+  { id: 10, name: "Bagua Grande" },
+  { id: 11, name: "Morrope" },
 ];
 ---
 
 <Section id="contact">
-  <div class="container mx-auto px-4 md:py-8 max-w-6xl text-white border-white border-2 rounded-2xl">
+  <Title title="Contacto" />
+  <div class="m-8 px-4 md:py-8 max-w-6xl text-white border-white border-2 rounded-2xl">
     <div class="backdrop-blur-sm rounded-2xl p-8">
-      <p class="text-gray-300 text-center mb-8 md:text-[32px]">
-        Si tienes alguna consulta o duda, por favor, completa el siguiente
+      <p class="text-gray-300 text-center mb-8 md:text-[30px]">
+        Si tienes alguna consulta o duda, completa el siguiente
         formulario y nos pondremos en contacto contigo lo antes posible.
       </p>
 
       <form
-        class="space-y-6 font-light md:text-[32px]"
+        class="space-y-6 font-light md:text-[20px]"
         action="#"
         method="POST"
       >
@@ -35,8 +46,7 @@ const orbPoints: OrbPoint[] = [
               name="nombres"
               id="nombres"
               required
-              class="md: text-[20px] w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-              placeholder="Texto"
+              class="md: w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 transition duration-200"
             />
           </div>
 
@@ -48,8 +58,7 @@ const orbPoints: OrbPoint[] = [
               name="apellidos"
               id="apellidos"
               required
-              class="md: text-[20px] w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-              placeholder="Texto"
+              class="md: w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 transition duration-200"
             />
           </div>
 
@@ -61,8 +70,7 @@ const orbPoints: OrbPoint[] = [
               name="email"
               id="email"
               required
-              class="md: text-[20px] w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-              placeholder="Texto"
+              class="md: w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 transition duration-200"
             />
           </div>
 
@@ -75,8 +83,7 @@ const orbPoints: OrbPoint[] = [
               id="telefono"
               required
               pattern="[0-9]{3}-[0-9]{3}"
-              class="md: text-[20px] w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
-              placeholder="000-000"
+              class="md: w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 placeholder-gray-400 transition duration-200"
             />
           </div>
         </div>
@@ -89,7 +96,7 @@ const orbPoints: OrbPoint[] = [
               id="orbPoint"
               name="orbPoint"
               required
-              class="md:text-[20px] w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 py-2.5 appearance-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200"
+              class="md: w-full bg-[#27222a] border border-gray-700 rounded-lg px-4 appearance-none py-2.5 placeholder-gray-400 transition duration-200"
             >
               <option value="" disabled selected>Selecciona una opción</option>
               {

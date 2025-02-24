@@ -1,22 +1,80 @@
 ---
-import GradientWrapper from "../GradientWrapper.astro";
 import ImageComp from "../ImageComp.astro";
 import Title from "../Title.astro";
 import Section from "../Section.astro";
 
-import fondo from "src/assets/img/bg/orb points.png";
 
 interface Location {
   title: string;
-  address: string[];
+  address: string;
   mapImage: string;
   locationImage: string;
 }
 
 const locations: Location[] = [
   {
-    title: "Nuevo Chimbote",
-    address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
+    title: "Chao - La Libertad",
+    address: "Av Ayacucho Mz 16 Lt 02",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Chimbote - La Libertad",
+    address: "Urbanización Miguel Grau Mz.W2 Lt.2 Nuevo Chimbote",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Chimbote - La Libertad",
+    address: "Mz. A6 Lt.17 Bellamar Segunda Etapa",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Huaraz - Ánchash",
+    address: "Av. Agustín Gamarra 835",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Virú - La Libertad",
+    address: "Calle libertad 281",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Chiclayo",
+    address: "Calle Virú 448, La Victoria 14007",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Ferreñafe",
+    address: "Calle Santa Rosa Mz F Lt 46 urb. Los Ángeles.",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Piura",
+    address: "Av. Junín No. 343, Piura",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Catacaos",
+    address: "Urbanización Trujillo 902",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Bagua Grande",
+    address: "Av. Héroes del Cenepa 1178",
+    mapImage: "/src/assets/img/locations/map.png",
+    locationImage: "/src/assets/img/locations/location.png",
+  },
+  {
+    title: "Morrope",
+    address: "Av. Mexico Nº413 Morrope",
     mapImage: "/src/assets/img/locations/map.png",
     locationImage: "/src/assets/img/locations/location.png",
   },
@@ -27,66 +85,38 @@ const locations: Location[] = [
   <Title title="Orb points" />
   <div class="relative">
     <div class="flex overflow-hidden items-center justify-center">
-      <div class="flex" style={`background-image: url(${fondo.src})`}>
-        <!-- Navigation Buttons -->
-        <button
-          id="prevBtn"
-          class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
-          aria-label="Previous location"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
+      <div
+        class="relative w-full max-w-5xl"
+      >
         <div
           id="locationSlider"
-          class="transition-transform duration-500 ease-in-out"
+          class="flex transition-transform duration-500 ease-in-out"
         >
           {
-            locations.map((location) => (
-              <div class="w-full flex-shrink-0">
-                <h2 class="text-3xl font-bold mb-2 text-center md:text-[40px]">
-                  {location.title}
-                </h2>
-                <ul class="list-disc list-inside mb-4 text-center text-normal md:text-[28px]">
-                  {location.address.map((line) => (
-                    <li>{line}</li>
-                  ))}
-                </ul>
+            locations.map((location, _) => (
+              <div class="w-full flex-shrink-0 text-center p-4">
+                <h2 class="text-3xl font-bold mb-2">{location.title}</h2>
+                <p class="mb-4 text-lg">{location.address}</p>
                 <div class="grid md:grid-cols-2 gap-4">
                   <div class="relative aspect-video rounded-xl overflow-hidden">
-                    <div class="w-full h-full">
-                      <ImageComp
-                          imagePath={location.mapImage}
-                          altText="Mapa"
-                          width={600}
-                          height={300}
-                        />
-                    </div>
-                    <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                    <ImageComp
+                      imagePath={location.mapImage}
+                      altText="Mapa"
+                      width={800}
+                      height={400}
+                    />
+                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition">
                       Ubicación
                     </button>
                   </div>
                   <div class="relative aspect-video rounded-xl overflow-hidden">
-                    <div class="w-full h-full object-cover">
-                      <ImageComp
-                          imagePath={location.locationImage}
-                          altText="Ubicación"
-                          width={600}
-                          height={300}
-                        />
-                    </div>
-                    <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                    <ImageComp
+                      imagePath={location.locationImage}
+                      altText="Ubicación"
+                      width={800}
+                      height={400}
+                    />
+                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition">
                       Ver video
                     </button>
                   </div>
@@ -95,36 +125,28 @@ const locations: Location[] = [
             ))
           }
         </div>
-
+        <!-- Navigation Buttons -->
+        <button
+          id="prevBtn"
+          class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
+        >
+          &#9664;
+        </button>
         <button
           id="nextBtn"
-          class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/10 hover:bg-white/20 transition-colors duration-300 rounded-full p-2 z-10"
-          aria-label="Next location"
+          class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
+          &#9654;
         </button>
       </div>
     </div>
   </div>
-
-  <!-- Navigation Dots -->
+  <!-- Dots Navigation -->
   <div class="flex justify-center gap-2 mt-4">
     {
       locations.map((_, index) => (
         <button
-          class={`w-2 h-2 rounded-full transition-colors duration-300 ${index === 0 ? "bg-white/50" : "bg-white/30"} dot`}
+          class={`w-3 h-3 rounded-full transition ${index === 0 ? "bg-white/50" : "bg-white/30"}`}
           data-index={index}
         />
       ))
@@ -133,58 +155,43 @@ const locations: Location[] = [
 </Section>
 
 <script>
-  const locations = [
-    {
-      title: "Nuevo Chimbote",
-      address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
-      mapUrl: "/placeholder.svg?height=400&width=600",
-      locationImage: "/location.png",
-    },
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("locationSlider");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dots = document.querySelectorAll("[data-index]");
+    let currentSlide = 0;
+    const totalSlides = dots.length;
 
-    {
-      title: "Nuevo ",
-      address: ["Óvalo la familia", "Av. Pacífico y Urb. Bellamar"],
-      mapUrl: "/placeholder.svg?height=400&width=600",
-      locationImage: "/location.png",
-    },
-  ];
-  const slider = document.getElementById("locationSlider") as HTMLElement;
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const dots = document.querySelectorAll(".dot");
-  const totalSlides = locations.length;
-  let currentSlide = 0;
-
-  function updateSlider() {
-    slider.style.transform = `translateX(-${currentSlide * 150}%)`;
-
-    // Update dots
-    dots.forEach((dot, index) => {
-      if (index === currentSlide) {
-        dot.classList.add("bg-white/50");
-        dot.classList.remove("bg-white/30");
-      } else {
-        dot.classList.add("bg-white/30");
-        dot.classList.remove("bg-white/50");
+    function updateSlider() {
+      if (slider) {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
       }
-    });
-  }
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("bg-white/50", index === currentSlide);
+        dot.classList.toggle("bg-white/30", index !== currentSlide);
+      });
+    }
 
-  prevBtn?.addEventListener("click", () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlider();
-  });
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+    }
 
-  nextBtn?.addEventListener("click", () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlider();
-  });
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      });
+    }
 
-  // Add dot navigation
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      currentSlide = Number((dot as HTMLElement).dataset.index);
-      updateSlider();
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        currentSlide = index;
+        updateSlider();
+      });
     });
   });
 </script>

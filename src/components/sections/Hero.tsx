@@ -1,5 +1,7 @@
 import { Download, Info } from "lucide-react";
 import AnimatedBackground from "../AnimatedBackground.tsx";
+import logo from "src/assets/img/hero/world_logo.svg";
+import hero from "src/assets/img/hero/frame.png";
 
 export default function Home() {
   return (
@@ -17,7 +19,7 @@ export default function Home() {
                   con
                 </h1>
                 <img
-                  src="/src/assets/img/hero/world_logo.svg"
+                  src={logo.src}
                   alt="World Device"
                   className="object-contain"
                 />
@@ -42,7 +44,7 @@ export default function Home() {
 
             <div className="relative w-full aspect-square max-w-[500px] mx-auto floating">
               <img
-                src="/src/assets/img/hero/frame.png"
+                src={hero.src}
                 alt="World Device"
                 className="object-contain"
               />

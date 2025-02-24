@@ -3,36 +3,34 @@ import { Image } from "astro:assets";
 import logo from "src/assets/img/header/crypnita_logo.png";
 
 const headerItems = [
-  { name: "World", href: "#world" },
-  { name: "Orbpoints", href: "/#locations" },
-  { name: "Beneficios", href: "/#benefits" },
-  { name: "Cómo registrarme", href: "/#register" },
-  { name: "App", href: "#app" },
-  { name: "Solicita información", href: "#contact" },
+  { name: "World", href: "/Crypnita-Landing/#world" },
+  { name: "Beneficios", href: "/Crypnita-Landing/#benefits" },
+  { name: "Cómo registrarme", href: "/Crypnita-Landing/#register" },
+  { name: "Orbpoints", href: "/Crypnita-Landing/#locations" },
+  { name: "Solicita información", href: "/Crypnita-Landing/#contact" },
+  { name: "App", href: "/#app" },
 ];
 ---
 
-<nav
-  class="fixed left-0 top-0 z-10 flex w-full h-20 items-center justify-between bg-[#f9f9f8]"
->
+<nav class="fixed left-0 top-0 z-20 flex w-full h-20 items-center justify-between bg-[#f9f9f8] shadow-md">
   <div class="ml-10">
-    <Image src={logo} alt="logo" width={200} />
+    <Image src={logo} alt="Crypnita Logo" width={200} />
   </div>
 
-  <!-- menú desktop -->
-  <div class="hidden flex-row gap-4 pr-6 md:flex">
+  <!-- Menú desktop -->
+  <div class="hidden md:flex flex-row gap-6 pr-10">
     {headerItems.map((item) => (
       <a
         href={item.href}
-        class="scroll-link p-4 text-center font-poppins text-lg font-semibold transition-transform duration-300 ease-in-out hover:text-[#FFA500] md:text-[20px]"
+        class="p-4 text-center font-poppins text-lg font-semibold transition duration-300 ease-in-out hover:text-[#FFA500]"
       >
         {item.name}
       </a>
     ))}
   </div>
 
-  <!-- botón burger móvil -->
-  <div class="md:hidden">
+  <!-- Botón menú móvil -->
+  <div class="md:hidden mr-5">
     <button id="menu-btn" class="text-black focus:outline-none">
       <svg
         class="h-8 w-8"
@@ -41,25 +39,19 @@ const headerItems = [
         viewBox="0 0 24 24"
         stroke="currentColor"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"
-        ></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
   </div>
 </nav>
 
-<!-- menú móvil -->
-<div
-  id="mobile-menu"
-  class="block h-0 w-full transform overflow-hidden opacity-0 transition-all duration-300 md:hidden"
->
-  <div class="flex flex-col gap-2 px-4">
+<!-- Menú móvil -->
+<div id="mobile-menu" class="fixed top-20 left-0 z-10 w-full h-screen bg-[#f9f9f8] transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden">
+  <div class="flex flex-col gap-4 p-6">
     {headerItems.map((item) => (
-      <a href={item.href} class="scroll-link hover:text-[#FFA500]">{item.name}</a>
+      <a href={item.href} class="p-4 text-lg font-semibold hover:text-[#FFA500] mobile-menu-link">
+        {item.name}
+      </a>
     ))}
   </div>
 </div>
@@ -68,38 +60,22 @@ const headerItems = [
   document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
+    const menuLinks = document.querySelectorAll(".mobile-menu-link");
+    const body = document.body;
 
     if (menuBtn && mobileMenu) {
       menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("opacity-100");
-        mobileMenu.classList.toggle("h-auto");
-        mobileMenu.classList.toggle("opacity-0");
-        mobileMenu.classList.toggle("h-0");
+        mobileMenu.classList.toggle("-translate-y-full");
+        body.style.overflow = mobileMenu.classList.contains("-translate-y-full") ? "auto" : "hidden";
       });
     }
 
-    // Smooth scroll y cierre de menú en móviles
-    document.querySelectorAll(".scroll-link").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href")?.substring(1);
-        if (targetId) {
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            // Cierra el menú antes de hacer scroll en móviles
-            if (mobileMenu?.classList.contains("opacity-100")) {
-              mobileMenu.classList.remove("opacity-100", "h-auto");
-              mobileMenu.classList.add("opacity-0", "h-0");
-
-              // Esperar a que el menú se cierre antes de hacer scroll
-              setTimeout(() => {
-                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-              }, 300); // Ajusta el tiempo según la duración de la animación del menú
-            } else {
-              targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          }
+    menuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (mobileMenu) {
+          mobileMenu.classList.add("-translate-y-full");
         }
+        body.style.overflow = "auto";
       });
     });
   });

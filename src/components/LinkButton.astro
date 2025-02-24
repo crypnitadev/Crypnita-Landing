@@ -1,0 +1,15 @@
+---
+const { text, link } = Astro.props;
+---
+
+<a
+  class="group relative inline-block rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins transform transition-transform ease-in-out md:text-xl"
+  href={link} 
+  target={link ? '_blank' : undefined} 
+  rel={link ? 'noopener noreferrer' : undefined}
+>
+  <span class="relative z-10">{text}</span>
+  <span
+    class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm group-hover:opacity-50"
+  ></span>
+</a>
