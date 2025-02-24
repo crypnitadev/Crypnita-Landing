@@ -2,7 +2,7 @@
 import GradientWrapper from "../GradientWrapper.astro";
 import ImageComp from "../ImageComp.astro";
 import Title from "../Title.astro";
-import Section from "./Section.astro";
+import Section from "../Section.astro";
 
 import fondo from "src/assets/img/bg/orb points.png";
 
@@ -23,7 +23,7 @@ const locations: Location[] = [
 ];
 ---
 
-<Section>
+<Section id="locations">
   <Title title="Orb points" />
   <div class="relative">
     <div class="flex overflow-hidden items-center justify-center">
@@ -66,14 +66,12 @@ const locations: Location[] = [
                 <div class="grid md:grid-cols-2 gap-4">
                   <div class="relative aspect-video rounded-xl overflow-hidden">
                     <div class="w-full h-full">
-                      <GradientWrapper>
-                        <ImageComp
+                      <ImageComp
                           imagePath={location.mapImage}
                           altText="Mapa"
                           width={600}
                           height={300}
                         />
-                      </GradientWrapper>
                     </div>
                     <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
                       Ubicación
@@ -81,14 +79,12 @@ const locations: Location[] = [
                   </div>
                   <div class="relative aspect-video rounded-xl overflow-hidden">
                     <div class="w-full h-full object-cover">
-                      <GradientWrapper>
-                        <ImageComp
+                      <ImageComp
                           imagePath={location.locationImage}
                           altText="Ubicación"
                           width={600}
                           height={300}
                         />
-                      </GradientWrapper>
                     </div>
                     <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition-colors duration-300">
                       Ver video

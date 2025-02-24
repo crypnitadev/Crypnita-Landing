@@ -5,8 +5,8 @@ import { Image } from 'astro:assets';
 interface Props {
    imagePath: string;
    altText: string;
-   width: number;
-   height: number;
+   width?: number;
+   height?: number;
 }
 
 const { imagePath, altText, width, height } = Astro.props;

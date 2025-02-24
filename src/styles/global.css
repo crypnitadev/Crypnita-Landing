@@ -33,6 +33,11 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
   --radius: 0.6rem;
+  --teal: #377b74;
+  --purple: #572d5b;
+  --dark: #100303;
+  --darker: #130e13;
+  --light: #f7f7f7;
 }
 
 .dark {
@@ -99,5 +104,25 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme {
+  --font-poppins: 'Poppins', 'sans-serif';
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

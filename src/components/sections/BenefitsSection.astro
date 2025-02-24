@@ -1,16 +1,9 @@
 ---
-import GradientWrapper from "../GradientWrapper.astro";
 import Title from "../Title.astro";
-import Card from "../WorldCard.astro";
-import Section from "./Section.astro";
+import TextBlock from "../TextBlock.astro";
+import Section from "../Section.astro";
 
 import fondo from "src/assets/img/bg/Rectangle 41.png";
-
-interface Props {
-  title: string;
-  description: string;
-  position: string;
-}
 
 const cards = [
   {
@@ -32,32 +25,29 @@ const cards = [
     position: "center",
   },
 ];
-
-const { title, description, position } = Astro.props;
 ---
-<Section 
-  style={`background-image: url(${fondo.src})`}
-  class="bg-cover bg-center min-h-screen"
->
+
+<Section id="benefits">
   <Title title="Beneficios" />
-  <div class="container flex mx-auto flex-col gap-15 md:gap-6 px-6 justify-center items-center">
+  <div
+    class="flex flex-col md:flex-row gap-6 mx-8 justify-center items-start"
+  >
     {
       cards.map((card) => (
-        <div class="flex md:w-150">
-          <GradientWrapper>
-            <Card {...card} />
-          </GradientWrapper>
-        </div>
+        <>
+          <div class="md:w-200 md:min-h-70 rounded-lg border-white border-1 p-5 hover:bg-white/10 transition-all">
+            <TextBlock {...card} />
+          </div>
+        </>
       ))
     }
-    <GradientWrapper>
-      <GradientWrapper>
-        <div class="mx-50 flex flex-col items-center">
-          <p class="text-center text-3xl mt-3 md:text-5xl">¡Puedes ganar hasta</p>
-          <p class="text-center my-3 text-5xl font-bold md:text-6xl">S/600!</p>
-          <p class="text-center my-3">Ya son más de 10 millones de personas verificadas</p>
-        </div>
-      </GradientWrapper>
-    </GradientWrapper>
+  </div>
+
+  <div class="my-20 py-5 flex flex-col items-center border-b-2 border-t-2">
+    <p class="text-center text-3xl m-3 md:text-6xl">¡Puedes ganar hasta</p>
+    <p class="text-center my-3 text-5xl font-extrabold md:text-6xl">S/600!</p>
+    <p class="text-center my-3">
+      Ya son más de 10 millones de personas verificadas
+    </p>
   </div>
 </Section>

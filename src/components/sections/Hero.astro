@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import logo from "src/assets/img/hero/world_logo.svg";
+import hero from "src/assets/img/hero/frame.png";
+---
+
+<div
+  class="min-h-screen pt-20 relative overflow-hidden flex font-poppins items-center justify-center bg-gradient-to-b from-[#f9f9f8] from-25% to-[#09090b]"
+>
+  <div class="p-5">
+    <div class="container mx-auto flex items-center justify-center">
+      <div
+        class="border border-black rounded-3xl p-8 md:p-12 backdrop-blur-sm bg-[#f9f9f8]"
+      >
+        <div class="grid md:grid-cols-2 gap-x-12 items-center">
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              >
+                Obtén tu Identidad anónima digital con
+              </h1>
+              <Image src={logo} alt="World" class="w-[283px] h-[81px]" />
+            </div>
+
+            <p class="text-xl md:text-2xl">
+              Recibe bonos en tu billetera y obtén tu pasaporte
+            </p>
+            <div class="flex flex-col my-4 md:flex-row gap-4">
+              <button
+                class="bg-gradient-to-r from-[#377B74] to-[#572D5B] text-white px-8 py-3 rounded-full font-medium text-lg hover:opacity-90 transition-opacity"
+              >
+                Descargar World
+              </button>
+              <button
+                class="bg-[#2d2c2c] backdrop-blur-sm text-white px-8 py-3 rounded-full font-medium text-lg hover:shadow-[inset_0_2px_4px_rgb(249, 249, 248)] transition-all"
+              >
+                Quiero más info
+              </button>
+            </div>
+          </div>
+
+          <div class="relative w-full max-w-[500px] mx-auto">
+            <Image src={hero} alt="World Device" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,22 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import WorldSection from "@/components/sections/WorldSection.astro";
 import BenefitsSection from "@/components/sections/BenefitsSection.astro";
-import HeroSection from "@/components/sections/HeroSection.astro";
+import HeroSection from "@/components/sections/Hero.tsx";
 import ContactSection from "@/components/sections/ContactSection.astro";
 import LocationsSection from "@/components/sections/LocationsSection.astro";
 import RegisterSection from "@/components/sections/RegisterSection.astro";
 import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
 
 import fondo from "src/assets/img/bg/bg.jpg";
 ---
 
 <Layout title="CRYPNITA - Identidad anónima digital">
-	<div class="overflow-hidden" style={`background-image: url(${fondo.src})`}>
-		<HeroSection />
-		<WorldSection />
-		<LocationsSection />
-		<RegisterSection />
-		<ContactSection />
-		<Footer />
-	</div>
+  <div class="overflow-hidden">
+    <Header />
+    <HeroSection client:visible/>
+    <WorldSection />
+    <BenefitsSection />
+    <RegisterSection />
+    <LocationsSection />
+    <ContactSection />
+    <Footer />
+  </div>
 </Layout>

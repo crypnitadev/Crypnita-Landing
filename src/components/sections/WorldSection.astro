@@ -1,87 +1,49 @@
 ---
-import { Image } from "astro:assets";
-import GradientWrapper from "../GradientWrapper.astro";
+import Section from "../Section.astro";
 import Title from "../Title.astro";
-import Card from "../WorldCard.astro";
-
-import fondo from "src/assets/img/bg/world.png";
-import ImageComp from "../ImageComp.astro";
+import Card from "../Card.astro";
 
 const sectionCards = [
   {
     imagePath: "/src/assets/img/world/world1.png",
     title: "¿Qué es World?",
+    altText: "¿Qué es World?",
     description:
       "Para construir un sistema de identidad digital y financiero justo, confiable y accesible, conectamos a una <strong>red global</strong> de <strong>personas reales</strong>.",
-    position: "left",
   },
   {
     imagePath: "/src/assets/img/world/world2.png",
     title: "¿Qué es World ID?",
+    altText: "¿Qué es World?",
     description:
       "Para <strong>proteger tu privacidad</strong> y evitar el spam, esta herramienta te permite demostrar que eres único y real en internet. En el futuro, será clave para los servicios online a medida que avance la <strong>inteligencia artificial</strong>.",
-    position: "right",
   },
   {
     imagePath: "/src/assets/img/world/world3.png",
     title: "¿Y mis datos?",
+    altText: "¿Qué es World?",
     description:
       "Para brindarte un <strong>pasaporte digital seguro y anónimo</strong>, el Orb crea una clave encriptada y tu pasaporte digital seguro y anónimo <strong>sin almacenar tu información personal</strong>.",
-    position: "left",
   },
   {
     imagePath: "/src/assets/img/world/world4.png",
     title: "¿Cómo funciona?",
+    altText: "¿Qué es World?",
     description:
       "Para <strong>garantizar</strong> que cada persona sea real, utilizamos el <strong>Orb</strong>, un dispositivo que verifica la identidad mediante un <strong>escaneo único</strong>.",
-    position: "right",
   },
 ];
 ---
 
-<div class="text-white my-10">
+<Section id="world">
   <Title title="World" />
-  <div class="container mx-auto gap-6 px-6">
+  <div class="mx-8 flex flex-col gap-10">
     {sectionCards.map((card) => {
-      let isLeft = card.position === "left";
-      let isRight = card.position === "right";
       return (
-        <div class="hidden md:gap-2 md:m-8 md:grid md:grid-cols-2 md:items-center md:justify-center">
-          {isLeft && (
-            <>
-              <div class="w-[400px] mx-auto">
-                <Card {...card} />
-              </div>
-              <div class="flex justify-end">
-                <GradientWrapper>
-                  <div class="rounded-lg w-[600px] h-[300px] flex justify-center">
-                    <ImageComp imagePath={card.imagePath} altText={card.title} width={600} height={300} />
-                  </div>
-                </GradientWrapper>
-              </div>
-            </>
-          )}
-          {isRight && (
-            <GradientWrapper>
-              <div class="rounded-lg w-[600px] h-[300px]">
-                <ImageComp imagePath={card.imagePath} altText={card.title} width={600} height={300}/>
-              </div>
-            </GradientWrapper>
-            <div class="w-[400px] mx-auto">
-              <Card {...card} />
-            </div>
-          )}
-        </div>
-
-        <div class="md:hidden gap-2 flex flex-col justify-center m-8">
+        <div class="container mx-auto md:items-center md:justify-center">
           <Card {...card} />
-          <GradientWrapper>
-            <div class="rounded-lg">
-              <ImageComp imagePath={card.imagePath} altText={card.title} width={600} height={300}/>
-            </div>
-          </GradientWrapper>
         </div>
       );
     })}
   </div>
-</div>
+</Section>

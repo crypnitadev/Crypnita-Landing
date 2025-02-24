@@ -1,7 +1,15 @@
 ---
-
+const { text } = Astro.props;
 ---
 
-<button class="button">
-  <slot />
+<button
+  class="group rounded-lg bg-[#181818] px-8 py-4 font-bold font-poppins
+  transform ease-in-out transition-transform
+  md:text-xl"
+>
+  <span class="relative z-10">{text}</span>
+  <span
+    class="opacity-0 absolute inset-0.5 rounded-lg bg-black blur-sm
+    group-hover:opacity-50"
+  ></span>
 </button>
