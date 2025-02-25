@@ -29,7 +29,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#"
+                  href="https://join.worldcoin.org/M4EZ40K"
                   className="bg-gradient-to-r from-[#377B74] to-[#572D5B] text-white px-8 py-3 rounded-full font-medium text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
                 >
                   <Download className="w-5 h-5" />
