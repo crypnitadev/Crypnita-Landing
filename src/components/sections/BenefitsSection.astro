@@ -3,25 +3,31 @@ import Title from "../Title.astro";
 import TextBlock from "../TextBlock.astro";
 import Section from "../Section.astro";
 
-import fondo from "src/assets/img/bg/Rectangle 41.png";
+import world from "/src/assets/benefits/world_logo.svg";
+import users from "/src/assets/benefits/users.svg";
+import reward from "/src/assets/benefits/reward.svg";
+import { Image } from "astro:assets";
 
 const cards = [
   {
+    image: "/src/assets/benefits/world_logo.svg",
     title: "Bono de bienvenida",
     description:
-      "Al registrarte, recibirás tus primeros 16 WLD (tokens), en menos de 48 horas. Úsalos, cámbialos a soles o hazlos crecer.",
+      "Al registrarte, recibirás tus primeros <strong>16 WLD (tokens)</strong>, en menos de 48 horas. Úsalos, <strong>cámbialos a soles</strong> o hazlos crecer.",
     position: "center",
   },
   {
+    image: "/src/assets/benefits/reward.svg",
     title: "Recompensas mensuales",
     description:
-      "Cada mes, en tu aniversario de registro, puedes reclamar más tokens WLD durante todo un año.",
+      "Cada mes, en tu aniversario de registro, puedes reclamar <strong>más tokens WLD durante todo un año</strong>.",
     position: "center",
   },
   {
+    image: "/src/assets/benefits/users.svg",
     title: "Refiere y gana",
     description:
-      "Comparte tu código único hasta con 10 personas, y por cada referido que se registre, ganas más tokens WLD.",
+      "Comparte tu código único hasta con <strong>10 personas</strong>, y por <strong>cada referido</strong> que se registre, ganas <strong>más tokens WLD</strong>.",
     position: "center",
   },
 ];
@@ -29,14 +35,16 @@ const cards = [
 
 <Section id="benefits">
   <Title title="Beneficios" />
-  <div
-    class="flex flex-col md:flex-row gap-6 mx-8 justify-center items-start"
-  >
+  <div class="flex flex-col md:flex-row gap-6 mx-8 justify-center items-start">
     {
       cards.map((card) => (
         <>
           <div class="md:w-200 md:min-h-70 rounded-lg border-white border-1 p-5 hover:bg-white/10 transition-all">
-            <TextBlock {...card} />
+            <div class="bg-0d1019 font-poppins text-white text-center text-left">
+              <h2 class="font-bold text-2xl md:text-[30px]">{card.title}</h2>
+              <p class="mt-2 mb-10 md:text-[20px]" set:html={card.description} />
+              <img src={card.image} alt="world" class="w-20 h-20 mx-auto invert brightness-10" />
+            </div>
           </div>
         </>
       ))

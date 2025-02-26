@@ -3,142 +3,155 @@ import ImageComp from "../ImageComp.astro";
 import Title from "../Title.astro";
 import Section from "../Section.astro";
 
-
 interface Location {
   title: string;
   address: string;
   mapImage: string;
   locationImage: string;
+  mapUrl: string;
 }
 
 const locations: Location[] = [
   {
-    title: "Chao - La Libertad",
-    address: "Av Ayacucho Mz 16 Lt 02",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
-  },
-  {
-    title: "Chimbote - La Libertad",
-    address: "Urbanización Miguel Grau Mz.W2 Lt.2 Nuevo Chimbote",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
-  },
-  {
-    title: "Chimbote - La Libertad",
+    title: "Bellamar - Nuevo Chimbote",
     address: "Mz. A6 Lt.17 Bellamar Segunda Etapa",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    mapImage: "/src/assets/locations/bellamar/bellamar.png",
+    locationImage: "/src/assets/locations/bellamar/Bellamar - Turistic.jpeg",
+    mapUrl: "https://maps.app.goo.gl/5jPDqzdALyFw4xpy5",
   },
   {
-    title: "Huaraz - Ánchash",
+    title: "Pacifico - Nuevo Chimbote",
+    address: "Urbanización Miguel Grau Mz.W2 Lt.2",
+    mapImage: "/src/assets/locations/Av. Pacifico/Av. Pacifico.png",
+    locationImage: "/src/assets/locations/Av. Pacifico/Pacifico - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/mBy9iD9GxwKfEjRY8",
+  },
+  {
+    title: "Agustín Gamarra - Huaraz",
     address: "Av. Agustín Gamarra 835",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
-  },
-  {
-    title: "Virú - La Libertad",
-    address: "Calle libertad 281",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
-  },
-  {
-    title: "Chiclayo",
-    address: "Calle Virú 448, La Victoria 14007",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    mapImage: "/src/assets/locations/Huaraz/Huaraz - Av. Agustin.png",
+    locationImage: "/src/assets/locations/Huaraz/Huaraz - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/UNmaAAiL89aycyVT8",
   },
   {
     title: "Ferreñafe",
-    address: "Calle Santa Rosa Mz F Lt 46 urb. Los Ángeles.",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    address: "Calle Santa Rosa Mz F Lt. 46 Urb. Los Angeles",
+    mapImage: "/src/assets/locations/Ferreñafe/Ferreñafe.png",
+    locationImage: "/src/assets/locations/Ferreñafe/Ferreñafe - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/JsouGvG2cXW2Ssx87",
   },
   {
-    title: "Piura",
-    address: "Av. Junín No. 343, Piura",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    title: "La Victoria - Chiclayo",
+    address: "Calle Virú, La victoria 14007",
+    mapImage: "/src/assets/locations/La Victoria/La Victoria.png",
+    locationImage:
+      "/src/assets/locations/La Victoria/La Victoria - Turistic.png",
+    mapUrl: "https://maps.app.goo.gl/bwErEh6tCcNLES9t6",
+  },
+  {
+    title: "Morrope",
+    address: "Av. Mexico N.413 ",
+    mapImage: "/src/assets/locations/Morrope/Morrope.png",
+    locationImage: "/src/assets/locations/Morrope/Morrope - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/818iFyVVz47qhGXn7",
+  },
+  {
+    title: "Chao",
+    address: "Av. Ayacucho Mz. 16 Lt 02",
+    mapImage: "/src/assets/locations/Chao/Chao.png",
+    locationImage: "/src/assets/locations/Chao/Chao - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/dFG3Hs9VGxX2nw5BA",
+  },
+  {
+    title: "Virú",
+    address: "Calle Libertad 281",
+    mapImage: "/src/assets/locations/Viru/Viru.png",
+    locationImage: "/src/assets/locations/Viru/Viru - Turistic.jpeg",
+    mapUrl: "https://maps.app.goo.gl/BGLPrhFcLTxVn4Zy8",
   },
   {
     title: "Catacaos",
     address: "Urbanización Trujillo 902",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    mapImage: "/src/assets/locations/Catacaos/Catacaos.png",
+    locationImage: "/src/assets/locations/Catacaos/Catacaos - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/VbZimuvfZSUCmFmn9",
   },
   {
-    title: "Bagua Grande",
-    address: "Av. Héroes del Cenepa 1178",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    title: "Castilla",
+    address: "Av. Junín No. 343, Piura",
+    mapImage: "/src/assets/locations/Av. Junin/Av. Junin.png",
+    locationImage: "/src/assets/locations/Av. Junin/Av. Junin - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/Jw9u3T2AGfJAiQo87",
   },
   {
-    title: "Morrope",
-    address: "Av. Mexico Nº413 Morrope",
-    mapImage: "/src/assets/img/locations/map.png",
-    locationImage: "/src/assets/img/locations/location.png",
+    title: "Bagua - Héroes de Cenepa",
+    address: "Av. Héroes de Cenepa 1178",
+    mapImage: "/src/assets/locations/Bagua/Bagua.png",
+    locationImage: "/src/assets/locations/Bagua/Bagua - Turistic.jpg",
+    mapUrl: "https://maps.app.goo.gl/F23qSaCwFhacgvpcA",
   },
 ];
 ---
 
 <Section id="locations">
   <Title title="Orb points" />
-  <div class="relative">
-    <div class="flex overflow-hidden items-center justify-center">
+  <div class="relative flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none"></div>
+    <div class="relative w-full overflow-hidden">
       <div
-        class="relative w-full max-w-5xl"
+        id="locationSlider"
+        class="flex transition-transform duration-500 ease-in-out space-x-16 px-8"
       >
-        <div
-          id="locationSlider"
-          class="flex transition-transform duration-500 ease-in-out"
-        >
-          {
-            locations.map((location, _) => (
-              <div class="w-full flex-shrink-0 text-center p-4">
-                <h2 class="text-3xl font-bold mb-2">{location.title}</h2>
-                <p class="mb-4 text-lg">{location.address}</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div class="relative aspect-video rounded-xl overflow-hidden">
+        {
+          locations.map((location) => (
+            <div class="w-full flex-shrink-0 text-center p-4">
+              <h2 class="text-3xl font-bold mb-2">{location.title}</h2>
+              <p class="mb-4 text-lg">{location.address}</p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <a
+                  href={location.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="relative aspect-video border border-transparent rounded-xl overflow-hidden transition hover:border-white">
                     <ImageComp
                       imagePath={location.mapImage}
                       altText="Mapa"
                       width={800}
                       height={400}
                     />
-                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition">
-                      Ubicación
-                    </button>
+                    <div class="flex absolute bottom-0 w-full bg-black text-white py-2 items-center justify-center transition hover:bg-opacity-75">
+                      <p class="px-4 py-2 bg-white/90 rounded-full text-black">Ubicación</p>
+                    </div>
                   </div>
-                  <div class="relative aspect-video rounded-xl overflow-hidden">
-                    <ImageComp
-                      imagePath={location.locationImage}
-                      altText="Ubicación"
-                      width={800}
-                      height={400}
-                    />
-                    <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 hover:bg-black/90 text-white px-6 py-2 rounded-full transition">
-                      Ver video
-                    </button>
-                  </div>
+                </a>
+                <div class="relative aspect-video rounded-xl overflow-hidden">
+                  <ImageComp
+                    imagePath={location.locationImage}
+                    altText="Ubicación"
+                    width={800}
+                    height={400}
+                  />
                 </div>
               </div>
-            ))
-          }
-        </div>
-        <!-- Navigation Buttons -->
-        <button
-          id="prevBtn"
-          class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
-        >
-          &#9664;
-        </button>
-        <button
-          id="nextBtn"
-          class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/10 hover:bg-white/20 rounded-full p-2"
-        >
-          &#9654;
-        </button>
+            </div>
+          ))
+        }
       </div>
+          <!-- Navigation Buttons -->
+
+      <button
+        id="prevBtn"
+        class="absolute top-1/2 left-4 -translate-y-1/2 md:left-0 bg-white/30 hover:bg-white/50 text-black text-xl md:text-2xl font-bold rounded-sm aspect-square px-2 md:px-4 py-1 md:py-2"
+      >
+        &#9664;
+      </button>
+      <button
+        id="nextBtn"
+        class="absolute top-1/2 right-4 -translate-y-1/2 md:right-0 bg-white/30 hover:bg-white/50 text-black text-xl md:text-2xl font-bold rounded-sm aspect-square px-2 md:px-4 py-1 md:py-2"
+      >
+        &#9654;
+      </button>
     </div>
   </div>
   <!-- Dots Navigation -->
@@ -173,14 +186,12 @@ const locations: Location[] = [
       });
     }
 
-    if (prevBtn) {
+    if (prevBtn && nextBtn) {
       prevBtn.addEventListener("click", () => {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateSlider();
       });
-    }
 
-    if (nextBtn) {
       nextBtn.addEventListener("click", () => {
         currentSlide = (currentSlide + 1) % totalSlides;
         updateSlider();

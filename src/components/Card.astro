@@ -16,7 +16,7 @@ const { title, description, imagePath, altText } = Astro.props as {
   altText: string;
 };
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/img/*/*.{jpeg,jpg,png,gif}"
+  "/src/assets/*/*.{jpeg,jpg,png,gif}"
 );
 if (!images[imagePath])
   throw new Error(

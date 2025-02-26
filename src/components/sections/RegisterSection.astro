@@ -1,32 +1,64 @@
 ---
 import Button from "../LinkButton.astro";
-import GradientWrapper from "../GradientWrapper.astro";
 import Title from "../Title.astro";
 import Section from "../Section.astro";
+import Modal from "./Modal.astro";
 ---
 
 <Section id="register">
-  <Title title="Cómo registrarme?" />
-  <div
-    class="mx-8 text-white flex items-center justify-center rounded-lg border border-white p-5"
-  >
-    <div class="flex mx-auto flex-col items-center text-center w-full max-w-3xl p-4">
-      <ol
-        class="list-decimal list-inside text-left text-2xl font-light mx-auto md:w-3/4 md:text-[30px] space-y-5"
-      >
-        <li>Descarga el aplicativo World App desde Play Store o App Store.</li>
-        <li>Genera una cita de verificación.</li>
-        <li>
-          Dirígete al punto de registro más cercano de tu localidad. ¡Y listo!
-        </li>
-      </ol>
-      <p class="text-xl my-5 md:text-[24px]">
-        El equipo de Crypnita te acompañará hasta el final.
-      </p>
-      <div class="flex space-x-10 justify-center mt-5">
-        <Button text="Puntos de registro" />
-        <Button text="Descargar App" />
+  <Title title="¿Cómo registrarme?" />
+  <div class="mx-8 text-white flex items-center justify-center rounded-lg border border-white p-10">
+    <div class="flex mx-auto flex-col items-center text-center w-full">
+      <div class="container relative flex-col gap-5 text-left text-2xl font-light mx-auto md:text-[30px] space-y-5">
+        <div class="relative md:left-0 flex items-center space-x-7 items-start jutify-start">
+          <svg class="w-12 h-12 text-white" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="24" stroke="white" stroke-width="2" fill="transparent"></circle>
+            <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-size="22" fill="white">1</text>
+          </svg>
+          <p class="max-w-4/5 md:w-1/3">Descarga el aplicativo World App desde Play Store o App Store.</p>
+        </div>
+        <div class="relative md:left-[30%] flex items-center space-x-7 items-start jutify-start">
+          <svg class="w-12 h-12 text-white" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="24" stroke="white" stroke-width="2" fill="transparent"></circle>
+            <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-size="22" fill="white">2</text>
+          </svg>
+          <p class="max-w-4/5 md:max-w-1/3">Genera una cita de verificación.</p>
+        </div>
+        <div class="relative md:left-[60%] flex items-center space-x-7 items-start jutify-start">
+          <svg class="w-12 h-12 text-white" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="24" stroke="white" stroke-width="2" fill="transparent"></circle>
+            <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-size="22" fill="white">3</text>
+          </svg>
+          <p class="max-w-4/5 md:max-w-1/3">Dirígete al punto de registro más cercano de tu localidad. ¡Y listo!</p>
+        </div>
+      </div>
+      <p class="text-xl mt-10 md:text-[24px]">El equipo de Crypnita te acompañará hasta el final.</p>
+      <div class="flex w-full md:w-2/4 md:flex-row flex-col gap-5 md:gap-10 justify-center mt-5 items-center">
+        <button class="group relative rounded-lg bg-white/90 w-full px-8 py-4 font-bold font-poppins transform transition-transform ease-in-out md:text-xl"
+          id="openModal">
+          <span class="relative z-10 text-black">Descargar App</span>
+          <span class="opacity-0 absolute inset-0.5 rounded-full bg-black blur-sm group-hover:opacity-50"></span>
+        </button>
+        <a class="group relative rounded-lg bg-[#181818] w-full px-8 py-4 font-bold font-poppins transform transition-transform ease-in-out md:text-xl"
+          href="/Crypnita-Landing/#locations">
+          <span class="relative z-10">Puntos de registro</span>
+          <span class="opacity-0 absolute inset-0.5 rounded-full bg-black blur-sm group-hover:opacity-50"></span>
+        </a>
       </div>
     </div>
   </div>
 </Section>
+<Modal id="modal" />
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("openModal");
+    const modal = document.getElementById("modal");
+
+    if (!openBtn || !modal) return;
+
+    openBtn.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+    });
+  });
+</script>

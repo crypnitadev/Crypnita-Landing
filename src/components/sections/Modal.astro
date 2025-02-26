@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import image from "src/assets/modal/modal.png";
+import apple from "src/assets/modal/apple.png";
+import google from "src/assets/modal/google.png";
+
+const { id } = Astro.props;
+---
+
+<div
+  id="modal"
+  class="fixed inset-0 z-20 hidden flex items-center justify-center bg-black/50"
+>
+  <div
+    class="absolute inset-0 bg-white/20 backdrop-blur-sm"
+    id="close-modal-bg"
+  >
+  </div>
+  <div
+    class="relative w-full md:mx-15 mx-5 overflow-hidden rounded-2xl bg-[#0D0D0D] text-white"
+  >
+    <!-- Grid overlay -->
+    <div
+      class="absolute inset-0 opacity-10 bg-[linear-gradient(#333_1px,transparent_1px),linear-gradient(90deg,#333_1px,transparent_1px)] bg-[size:100px_100px]"
+    >
+    </div>
+
+    <div class="relative p-6 md:p-8">
+      <!-- Close button -->
+      <button
+        id="close-modal"
+        class="absolute right-4 top-4 text-white/80 hover:text-white transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6.225 4.811a.75.75 0 011.06 0L12 9.525l4.715-4.714a.75.75 0 111.06 1.06L13.06 10.585l4.714 4.715a.75.75 0 11-1.06 1.06L12 11.645l-4.715 4.715a.75.75 0 11-1.06-1.06l4.714-4.715-4.714-4.714a.75.75 0 010-1.06z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+
+      <!-- Title -->
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+        ¿Qué es World App?
+      </h2>
+
+      <!-- Two column layout -->
+      <div class="flex flex-col md:flex-cols-2 gap-8 items-center">
+        <div class="mx-auto space-y-6 max-w-md">
+          <p class="text-xl md:text-2xl leading-relaxed">
+            Es una app donde <span class="font-semibold"
+              >puedes usar tu World ID</span
+            >, manejar activos digitales, acceder a mini apps y <span
+              class="font-semibold">reclamar tokens WLD</span
+            >
+          </p>
+
+          <h3 class="text-xl font-semibold">Descarga la World App aquí</h3>
+
+          <!-- App store buttons -->
+          <div class="flex flex-col w-full md:flex-wrap gap-4">
+            <a href="https://apps.apple.com/ar/app/world-app-worldcoin-wallet/id1560859847" class="transition-opacity hover:opacity-80">
+              <Image
+                src={apple}
+                alt="Download on the App Store"
+                width={200}
+                height={60}
+                class="md:h-[46px] w-auto"
+              />
+            </a>
+            <a href="https://play.google.com/store/search?q=world%20app&c=apps&hl=es_419" class="transition-opacity hover:opacity-80">
+              <Image
+                src={google}
+                alt="Get it on Google Play"
+                width={200}
+                height={60}
+                class="md:h-[46px] w-auto"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="relative items-center justify-center">
+          <Image
+            src={image}
+            alt="World App Screenshots"
+            class="w-full h-auto object-contain"
+            width={700}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#close-modal, #close-modal-bg").forEach((el) => {
+      el.addEventListener("click", () => {
+        const modal = document.getElementById("modal");
+        if (modal) {
+          modal.classList.add("hidden");
+        }
+      });
+    });
+  });
+</script>

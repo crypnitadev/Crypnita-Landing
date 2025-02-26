@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import '@fontsource/poppins'; 
 import '../styles/global.css';
+import bg from '../assets/bg/bg4.png';
 
 interface Props {
 	title: string;
@@ -19,7 +20,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<main class="scroll-smooth relativez z-0 bg-[#09090b] font-poppins">
+		<main class="scroll-smooth relative z-0 bg-[#09090b] font-poppins">
 			<slot />
 		</main>
 	</body>
